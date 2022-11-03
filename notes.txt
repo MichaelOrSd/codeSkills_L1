@@ -1,0 +1,2 @@
+1. Setup a server using node and express.
+2. 
