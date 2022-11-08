@@ -8,7 +8,6 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-
 // Create a user
 app.post("/users", async(req, res) => {
     try {
@@ -24,7 +23,6 @@ app.post("/users", async(req, res) => {
 })
 
 // Get all users
-
 app.get("/users", async(req, res) => {
     try {
         const allUsers = await pool.query("SELECT * FROM users");
@@ -35,11 +33,41 @@ app.get("/users", async(req, res) => {
 })
 
 // Get a user
+app.get("/users/:id", async(req, res) => {
+    try {
+        const { id } = req.params;
+        const user = await pool.query("SELECT * FROM users WHERE id = $1", 
+        [id]);
+        res.json(user.rows[0]);
+    } catch (error) {
+        console.error(err.message);
+    }
+})
 
 // Update a user
+app.put("/users/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { first_name, last_name, email, created_at } = req.body;
+        const updateUser = await pool.query("UPDATE users SET first_name = $1, last_name = $2, email = $3, created_at = $4 WHERE id = $5", 
+        [ first_name, last_name, email, created_at, id ]);
+        res.json("User was updated!");
+    } catch (error) {
+        console.error(err.message);
+    }
+})
 
 // Delete a user
-
+app.delete("/users/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleteUser = await pool.query("DELETE FROM users WHERE id = $1",
+        [id]);
+        res.json("User was deleted!");
+    } catch (error) {
+        console.error(err.message);
+    }
+})
 
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
