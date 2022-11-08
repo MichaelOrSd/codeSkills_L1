@@ -23,7 +23,7 @@ app.post("/users", async(req, res) => {
     }
 })
 
-// Get all users 23233232
+// Get all users 
 
 app.get("/users", async(req, res) => {
     try {
