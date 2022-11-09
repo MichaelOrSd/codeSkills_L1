@@ -2,16 +2,18 @@ import React, { Fragment, useState } from "react";
 
 const InputUser = () => {
 
-    const [description, setDescription] = useState("");
+    const [first_name, setFirstName] = useState("");
+    const [last_name, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [created_at, setCreatedAt] = useState("");
 
     const onSubmitForm = async (e) => {
 
         e.preventDefault();
 
         try {
-            const body = { description };
+            const body = { first_name, last_name, email, created_at };
             const response = await fetch("http://localhost:5000/users", {
-
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
@@ -30,8 +32,27 @@ const InputUser = () => {
                 <input 
                 type="text" 
                 className="form-control" 
-                value={description} 
-                onChange={e => setDescription(e.target.value)}/>
+                placeholder='Enter your first name'
+                value={first_name} 
+                onChange={e => setFirstName(e.target.value)}/>
+                <input 
+                type="text" 
+                className="form-control" 
+                placeholder='Enter your last name'
+                value={last_name} 
+                onChange={e => setLastName(e.target.value)}/>
+                <input 
+                type="text" 
+                className="form-control" 
+                placeholder='Enter your email'
+                value={email} 
+                onChange={e =>  setEmail(e.target.value)}/>
+                <input 
+                type="text" 
+                className="form-control" 
+                placeholder='Enter date created'
+                value={created_at} 
+                onChange={e => setCreatedAt(e.target.value)}/>
                 <button className="btn btn-success">Add</button>
             </form>
         </Fragment>
