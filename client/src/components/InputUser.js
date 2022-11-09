@@ -32,25 +32,25 @@ const InputUser = () => {
                 <input 
                 type="text" 
                 className="form-control" 
-                placeholder='Enter your first name'
+                placeholder='First name'
                 value={first_name} 
                 onChange={e => setFirstName(e.target.value)}/>
                 <input 
                 type="text" 
                 className="form-control" 
-                placeholder='Enter your last name'
+                placeholder='Last name'
                 value={last_name} 
                 onChange={e => setLastName(e.target.value)}/>
                 <input 
                 type="text" 
                 className="form-control" 
-                placeholder='Enter your email'
+                placeholder='Email'
                 value={email} 
                 onChange={e =>  setEmail(e.target.value)}/>
                 <input 
                 type="text" 
                 className="form-control" 
-                placeholder='Enter date created'
+                placeholder='YYYYMMDD'
                 value={created_at} 
                 onChange={e => setCreatedAt(e.target.value)}/>
                 <button className="btn btn-success">Add</button>
