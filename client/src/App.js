@@ -1,9 +1,16 @@
 import React, { Fragment } from 'react';
 import './App.css';
 
+// components 
+import InputUser from './components/InputUser';
+
 function App() {
   return (
-    <Fragment></Fragment>
+    <Fragment>
+      <div className="container">
+        <InputUser />
+      </div>
+    </Fragment>
   );
 }
 
