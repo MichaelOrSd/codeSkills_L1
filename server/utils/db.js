@@ -14,7 +14,6 @@ const connectDb = async () => {
   });
   await pool.connect();
   console.info(`Database connection established ${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`);
-
   } catch (error) {
     console.error(error);
   }
