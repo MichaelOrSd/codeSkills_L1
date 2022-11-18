@@ -17,8 +17,8 @@ app.post("/users", async(req, res) => {
         );
         res.json(newUser.rows[0]);
 
-    } catch (err) {
-        console.error(err.message);
+    } catch (error) {
+        console.error(error.message);
     }
 })
 
@@ -53,7 +53,7 @@ app.put("/users/:id", async (req, res) => {
         [ first_name, last_name, email, created_at, id ]);
         res.json("User was updated!");
     } catch (error) {
-        console.error(err.message);
+        console.error(error.message);
     }
 })
 
