@@ -1,21 +1,19 @@
 {
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "npm": "^8.19.3",
-    "pg": "^8.8.0"
-  },
   "name": "codeskills",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": ">18"
+  },
   "scripts": {
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MichaelOrSd/codeSkills_L1.git"
   },
-  "author": "",
+  "author": "Michael O'Reilly",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MichaelOrSd/codeSkills_L1/issues"
@@ -24,5 +22,12 @@
   "description": "",
   "devDependencies": {
     "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "npm": "^8.19.3",
+    "pg": "^8.8.0"
   }
 }
