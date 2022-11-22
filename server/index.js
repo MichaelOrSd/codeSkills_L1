@@ -28,11 +28,11 @@ app.get("/users", async(req, res) => {
         const allUsers = await pool.query("SELECT * FROM users");
         res.json(allUsers.rows);
     } catch (error) {
-        console.error(err.message);
+        console.error(error.message);
     }
 })
 
-// Get a user
+// Get a user by id
 app.get("/users/:id", async(req, res) => {
     try {
         const { id } = req.params;
@@ -40,9 +40,10 @@ app.get("/users/:id", async(req, res) => {
         [id]);
         res.json(user.rows[0]);
     } catch (error) {
-        console.error(err.message);
+        console.error(error.message);
     }
 })
+
 
 // Update a user
 app.put("/users/:id", async (req, res) => {
@@ -61,11 +62,13 @@ app.put("/users/:id", async (req, res) => {
 app.delete("/users/:id", async (req, res) => {
     try {
         const { id } = req.params;
+        const { first_name } = req.body;
+        const { last_name } = req.body;
         const deleteUser = await pool.query("DELETE FROM users WHERE id = $1",
         [id]);
-        res.json("User was deleted!");
+        res.json(`User was deleted! id:${id}, name:${first_name} ${last_name}`);
     } catch (error) {
-        console.error(err.message);
+        console.error(error.message);
     }
 })
 
